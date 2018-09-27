@@ -1,6 +1,6 @@
 # remove-admin-dash-menu
 
-# show rest in json
+# show-rest-in-json
 
 ### author:nightfury
 
