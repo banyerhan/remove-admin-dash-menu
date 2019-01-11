@@ -4,7 +4,7 @@ function remove_menus () {
     if(is_user_logged_in() && current_user_can('author')) || if (!(current_user_can('administrator')))
     {
         global $menu;
-        $restricted = array(__('Downloads'),__('Grid Elements'),__('Contact'), __('Links'), __('Pages'), __('Appearance'), __('Tools'), __('Settings'), __('Comments'), __('Plugins'));
+        $restricted = array(__('Downloads'),__('Contact'), __('Links'), __('Pages'), __('Appearance'), __('Tools'), __('Settings'), __('Comments'), __('Plugins'));
         end ($menu);
         while (prev($menu)){
             $value = explode(' ',$menu[key($menu)][0]);
@@ -15,12 +15,17 @@ function remove_menus () {
 add_action('admin_menu', 'remove_menus');
 
 /* Remove Contact Form 7 Links from dashboard menu items if not admin */
-    if (!(current_user_can('administrator'))) {
+if (!(current_user_can('administrator'))) {
+	
 	function remove_wpcf7() {
 	    remove_menu_page( 'wpcf7' ); 
 	}
-
-add_action('admin_menu', 'remove_wpcf7');
+	add_action('admin_menu', 'remove_wpcf7');
+	
+    function custom_menu_page_removing() {
+    remove_menu_page('vc-welcome');
+    }
+	add_action( 'admin_init', 'custom_menu_page_removing' );
  }
 
 ?>
