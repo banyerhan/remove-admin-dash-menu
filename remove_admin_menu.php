@@ -20,12 +20,12 @@ if (!(current_user_can('administrator'))) {
 	function remove_wpcf7() {
 	    remove_menu_page( 'wpcf7' ); 
 	}
-	add_action('admin_menu', 'remove_wpcf7');
+    add_action('admin_menu', 'remove_wpcf7');
 	
     function custom_menu_page_removing() {
     remove_menu_page('vc-welcome');
     }
-	add_action( 'admin_init', 'custom_menu_page_removing' );
+    add_action( 'admin_init', 'custom_menu_page_removing' );
  }
 
 ?>
