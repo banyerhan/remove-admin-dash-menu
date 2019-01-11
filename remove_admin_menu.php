@@ -1,6 +1,6 @@
 <?php
 function remove_menus () {
-    if(is_user_logged_in() && current_user_can('author'))
+    if(is_user_logged_in() && current_user_can('author')) || if (!(current_user_can('administrator')))
     {
         global $menu;
         $restricted = array(__('Downloads'),__('Grid Elements'),__('Contact'), __('Links'), __('Pages'), __('Appearance'), __('Tools'), __('Settings'), __('Comments'), __('Plugins'));
