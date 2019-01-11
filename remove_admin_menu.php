@@ -12,4 +12,14 @@ function remove_menus () {
     }
 }
 add_action('admin_menu', 'remove_menus');
+
+/* Remove Contact Form 7 Links from dashboard menu items if not admin */
+    if (!(current_user_can('administrator'))) {
+	function remove_wpcf7() {
+	    remove_menu_page( 'wpcf7' ); 
+	}
+
+add_action('admin_menu', 'remove_wpcf7');
+ }
+
 ?>
