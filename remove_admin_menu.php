@@ -1,5 +1,6 @@
 <?php
 function remove_menus () {
+	/* Choose your prefer role for person */
     if(is_user_logged_in() && current_user_can('author')) || if (!(current_user_can('administrator')))
     {
         global $menu;
