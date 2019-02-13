@@ -14,6 +14,13 @@ function remove_menus () {
 }
 add_action('admin_menu', 'remove_menus');
 
+function remove_menu_items_post_type() {
+    if( !(current_user_can( 'administrator' ))):
+        remove_menu_page( 'edit.php?post_type=post-type-name' );
+    endif;
+}
+add_action( 'admin_menu', 'remove_menu_items_post_type' );
+
 /* Remove Contact Form 7 Links from dashboard menu items if not admin */
 if (!(current_user_can('administrator'))) {
 	
