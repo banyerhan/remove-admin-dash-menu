@@ -35,4 +35,18 @@ if (!(current_user_can('administrator'))) {
     add_action( 'admin_init', 'custom_menu_page_removing' );
  }
 
+// Hide wp logo
+add_action( 'wp_before_admin_bar_render', function() {
+global $wp_admin_bar;
+$wp_admin_bar->remove_menu('wp-logo');
+}, 7 );
+
+// Hide new content in wp admin bar
+function remove_new_content(){
+    global $wp_admin_bar;
+    $wp_admin_bar->remove_menu( 'new-content' );
+}
+add_action( 'wp_before_admin_bar_render', 'remove_new_content' );
+
+
 ?>
