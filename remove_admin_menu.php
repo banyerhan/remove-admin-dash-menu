@@ -50,3 +50,9 @@ add_action( 'wp_before_admin_bar_render', 'remove_new_content' );
 
 
 ?>
+
+// get current users
+
+global $current_user;
+   
+$current_user =  wp_get_current_user();
