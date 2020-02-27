@@ -48,9 +48,6 @@ function remove_new_content(){
 }
 add_action( 'wp_before_admin_bar_render', 'remove_new_content' );
 
-
-?>
-
 // get current users
 
 global $current_user;
@@ -62,3 +59,6 @@ printf( __( 'User first name: %s', 'textdomain' ), esc_html( $current_user->user
 printf( __( 'User last name: %s', 'textdomain' ), esc_html( $current_user->user_lastname ) ) . '<br />';
 printf( __( 'User display name: %s', 'textdomain' ), esc_html( $current_user->display_name ) ) . '<br />';
 printf( __( 'User ID: %s', 'textdomain' ), esc_html( $current_user->ID ) );
+
+
+?>
